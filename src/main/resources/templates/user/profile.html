@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    {{> fragments/header}}
+    <link href="/css/user/profile.css" rel="stylesheet">
+</head>
+<body>
+<div class="background">
+    {{> fragments/navbar}}
+
+    <div class="container" id="main">
+        <div id="profileBox">
+            <div>
+                <h>Profiles</h>
+            </div>
+            <hr>
+            <div id="profileBox-below-content">
+                <div id="below-content-text">
+                    {{#user}}
+                    <p>아이디: {{userId}}</p>
+                    <p id="below-content-text-nickName">닉네임: {{nickName}}</p>
+                    <p>이메일: {{email}}</p>
+                    {{/user}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
