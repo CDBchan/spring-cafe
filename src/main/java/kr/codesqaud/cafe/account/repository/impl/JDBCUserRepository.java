@@ -22,7 +22,7 @@ public class JDBCUserRepository implements UserRepository {
 	@Override
 	public void save(User user) {
 		namedParameterJdbcTemplate.update(
-			"INSERT INTO `USER` (nickName, email, password, user_id) VALUES (:nickName, :email, :password, :userId)",
+			"INSERT INTO USER (nickName, email, password, user_id) VALUES (:nickName, :email, :password, :userId)",
 			new MapSqlParameterSource()
 				.addValue("nickName", user.getNickName())
 				.addValue("email", user.getEmail())
@@ -37,8 +37,8 @@ public class JDBCUserRepository implements UserRepository {
 	 */
 	@Override
 	public boolean exist(String userId) {
-		return namedParameterJdbcTemplate.query("SELECT user_id FROM `USER` WHERE user_id = :userId LIMIT 1 ",
-				new MapSqlParameterSource("userId", userId), (rs, rn) -> rs.getString("userId"))
+		return namedParameterJdbcTemplate.query("SELECT user_id FROM USER WHERE user_id = :userId LIMIT 1 ",
+				new MapSqlParameterSource("userId", userId), (rs, rn) -> rs.getString("user_id"))
 			.stream()
 			.findFirst()
 			.isPresent();
@@ -46,13 +46,13 @@ public class JDBCUserRepository implements UserRepository {
 
 	@Override
 	public List<User> findAll() {
-		return namedParameterJdbcTemplate.query("SELECT nickName,email,password,user_id,date FROM `USER`",
+		return namedParameterJdbcTemplate.query("SELECT nickName,email,password,user_id,date FROM USER",
 			(rs, rn) -> new User(rs));
 	}
 
 	@Override
 	public Optional<User> findUserById(String userId) {
-		List<User> users = namedParameterJdbcTemplate.query("SELECT * FROM `USER` WHERE user_id = :userId",
+		List<User> users = namedParameterJdbcTemplate.query("SELECT * FROM USER WHERE user_id = :userId",
 			new MapSqlParameterSource("userId", userId), (rs, rn) -> new User(rs));
 		return users.stream().findFirst();
 	}
@@ -60,7 +60,7 @@ public class JDBCUserRepository implements UserRepository {
 	@Override
 	public void updateUser(User user) {
 		namedParameterJdbcTemplate.update(
-			"UPDATE `USER` SET nickName = :nickName, email = :email, password = :password WHERE user_id = :userId",
+			"UPDATE USER SET nickName = :nickName, email = :email, password = :password WHERE user_id = :userId",
 			new MapSqlParameterSource()
 				.addValue("nickName", user.getNickName())
 				.addValue("email", user.getEmail())

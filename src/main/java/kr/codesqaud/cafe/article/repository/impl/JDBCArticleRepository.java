@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import kr.codesqaud.cafe.article.domain.Article;
@@ -29,7 +31,6 @@ public class JDBCArticleRepository implements ArticleRepository {
 				.addValue("content", article.getContent())
 				.addValue("userId", article.getUserId())
 		);
-
 	}
 
 	@Override
