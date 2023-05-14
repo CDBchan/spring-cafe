@@ -6,6 +6,7 @@ import static org.mockito.BDDMockito.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.StringTokenizer;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,6 +30,8 @@ import kr.codesqaud.cafe.article.repository.ArticleRepository;
 import kr.codesqaud.cafe.global.mapper.ArticleMapper;
 import kr.codesqaud.cafe.mainPage.PaginationDto;
 import kr.codesqaud.cafe.utils.ArticleTestUtils;
+import kr.codesqaud.cafe.utils.data.LongTestData;
+import kr.codesqaud.cafe.utils.data.StringTestData;
 
 @ExtendWith(MockitoExtension.class)
 class ArticleServiceTest {
@@ -50,8 +53,8 @@ class ArticleServiceTest {
 	private ArticleListItem articleResponseForList;
 	private PaginationDto paginationDto;
 	private List<Article> articles;
-	private static Long ArticleIdx = 1L;
-	private static final String USER_ID = "testId";
+	private static Long ArticleIdx = LongTestData.ARTICLE_IDX.getValue();
+	private static final String USER_ID = StringTestData.USER_ID.getValue();
 
 	@BeforeEach
 	void setUp() {

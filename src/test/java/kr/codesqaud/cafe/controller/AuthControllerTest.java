@@ -25,6 +25,7 @@ import kr.codesqaud.cafe.account.UserService;
 import kr.codesqaud.cafe.account.dto.SignInRequest;
 import kr.codesqaud.cafe.account.dto.UserResponse;
 import kr.codesqaud.cafe.global.config.Session;
+import kr.codesqaud.cafe.utils.data.StringTestData;
 
 @WebMvcTest(AuthController.class)
 class AuthControllerTest {
@@ -41,10 +42,10 @@ class AuthControllerTest {
 
 	private SignInRequest signInRequest;
 
-	private static final String NICK_NAME = "nickName";
-	private static final String EMAIL = "test@Email.com";
-	private static final String PASSWORD = "password123";
-	private static final String USER_ID = "tester";
+	private static final String NICK_NAME = StringTestData.NICK_NAME.getValue();
+	private static final String EMAIL = StringTestData.EMAIL.getValue();
+	private static final String PASSWORD = StringTestData.PASSWORD.getValue();
+	private static final String USER_ID = StringTestData.USER_ID.getValue();
 
 	@BeforeEach
 	public void setUp() {

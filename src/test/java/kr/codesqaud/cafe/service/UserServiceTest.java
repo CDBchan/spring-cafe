@@ -29,6 +29,7 @@ import kr.codesqaud.cafe.account.exception.UserNotFoundException;
 import kr.codesqaud.cafe.account.exception.UserUpdateInvalidPasswordException;
 import kr.codesqaud.cafe.account.repository.UserRepository;
 import kr.codesqaud.cafe.global.mapper.UserMapper;
+import kr.codesqaud.cafe.utils.data.StringTestData;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceTest {
@@ -51,7 +52,7 @@ class UserServiceTest {
 	private ProfileEditRequest profileEditRequestWithDifferentOriPassword;
 	private SignInRequest signInRequestWithCorrectPassword;
 	private SignInRequest signInRequestWithInCorrectPassword;
-	private static final String USER_ID = "tester";
+	private static final String USER_ID = StringTestData.USER_ID.getValue();
 
 	@BeforeEach
 	void setUp() {
