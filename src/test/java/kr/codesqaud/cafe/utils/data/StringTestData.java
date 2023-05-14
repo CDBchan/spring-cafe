@@ -2,6 +2,7 @@ package kr.codesqaud.cafe.utils.data;
 
 public enum StringTestData {
 	USER_ID("testId"),
+	NEW_USER_ID("testId2"),
 	NICK_NAME("tester"),
 	TITLE("title"),
 	CONTENT("content"),

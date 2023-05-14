@@ -23,6 +23,7 @@ public class UserTestUtils {
 	public static User createUser() {
 		return new User(NICK_NAME, EMAIL, PASSWORD, USER_ID);
 	}
+	public static User createUser2(){return new User(NICK_NAME, EMAIL, PASSWORD, StringTestData.NEW_USER_ID.getValue());}
 
 	public static UserSignUpRequest createUserSignUpRequest() {
 		return new UserSignUpRequest(NICK_NAME, EMAIL, PASSWORD, USER_ID);
