@@ -11,15 +11,17 @@ import kr.codesqaud.cafe.article.dto.ArticleResponse;
 import kr.codesqaud.cafe.article.dto.ArticleTitleAndContentResponse;
 import kr.codesqaud.cafe.article.dto.ArticleUpdateRequest;
 import kr.codesqaud.cafe.mainPage.PaginationDto;
+import kr.codesqaud.cafe.utils.data.LongTestData;
+import kr.codesqaud.cafe.utils.data.StringTestData;
 
 public class ArticleTestUtils {
 
-	private static final Long ARTICLE_IDX = 1L;
-	private static final String USER_ID = "testId";
-	private static final String NICK_NAME = "tester";
-	private static final String TITLE = "title";
-	private static final String CONTENT = "content";
-	private static final String DATE = "2023-4-27";
+	private static final Long ARTICLE_IDX = LongTestData.ARTICLE_IDX.getValue();
+	private static final String USER_ID = StringTestData.USER_ID.getValue();
+	private static final String NICK_NAME = StringTestData.NICK_NAME.getValue();
+	private static final String TITLE = StringTestData.TITLE.getValue();
+	private static final String CONTENT = StringTestData.CONTENT.getValue();
+	private static final String DATE = StringTestData.DATE.getValue();
 
 	public static Article createArticle() {
 		return new Article(TITLE, CONTENT, USER_ID, NICK_NAME);
