@@ -20,11 +20,18 @@ public class ArticleTestUtils {
 	private static final String USER_ID = StringTestData.USER_ID.getValue();
 	private static final String NICK_NAME = StringTestData.NICK_NAME.getValue();
 	private static final String TITLE = StringTestData.TITLE.getValue();
+	private static final String NEW_TITLE = StringTestData.NEW_TITLE.getValue();
 	private static final String CONTENT = StringTestData.CONTENT.getValue();
+	private static final String NEW_CONTENT = StringTestData.NEW_CONTENT.getValue();
 	private static final String DATE = StringTestData.DATE.getValue();
+
 
 	public static Article createArticle() {
 		return new Article(TITLE, CONTENT, USER_ID, NICK_NAME);
+	}
+
+	public static Article createArticleForUpdate() {
+		return new Article(NEW_TITLE, NEW_CONTENT,ARTICLE_IDX);
 	}
 
 	public static ArticlePostRequest createArticlePostRequest() {
