@@ -10,18 +10,20 @@ import kr.codesqaud.cafe.account.dto.SignInRequest;
 import kr.codesqaud.cafe.account.dto.UserResponse;
 import kr.codesqaud.cafe.account.dto.UserResponseForList;
 import kr.codesqaud.cafe.account.dto.UserSignUpRequest;
+import kr.codesqaud.cafe.utils.data.StringTestData;
 
 public class UserTestUtils {
 
-	private static final String NICK_NAME = "nickName";
-	private static final String EMAIL = "test@Email.com";
-	private static final String PASSWORD = "password123";
-	private static final String USER_ID = "tester";
-	private static final String DATE = "2023-4-27";
+	private static final String NICK_NAME = StringTestData.NICK_NAME.getValue();
+	private static final String EMAIL = StringTestData.EMAIL.getValue();
+	private static final String PASSWORD = StringTestData.PASSWORD.getValue();
+	private static final String USER_ID = StringTestData.USER_ID.getValue();
+	private static final String DATE = StringTestData.DATE.getValue();
 
 	public static User createUser() {
 		return new User(NICK_NAME, EMAIL, PASSWORD, USER_ID);
 	}
+	public static User createUser2(){return new User(NICK_NAME, EMAIL, PASSWORD, StringTestData.NEW_USER_ID.getValue());}
 
 	public static UserSignUpRequest createUserSignUpRequest() {
 		return new UserSignUpRequest(NICK_NAME, EMAIL, PASSWORD, USER_ID);

@@ -27,6 +27,8 @@ import kr.codesqaud.cafe.reply.dto.LoadMoreReplyDto;
 import kr.codesqaud.cafe.reply.dto.ReplyRequest;
 import kr.codesqaud.cafe.reply.dto.ReplyResponse;
 import kr.codesqaud.cafe.reply.dto.Result;
+import kr.codesqaud.cafe.utils.data.LongTestData;
+import kr.codesqaud.cafe.utils.data.StringTestData;
 
 @WebMvcTest(ReplyController.class)
 class ReplyControllerTest {
@@ -45,10 +47,10 @@ class ReplyControllerTest {
 
 	private Result result;
 
-	private static final String CONTENT = "댓글 내용";
-	private static final String NICK_NAME = "tester";
+	private static final String CONTENT = StringTestData.CONTENT.getValue();
+	private static final String NICK_NAME = StringTestData.NICK_NAME.getValue();
 	private static final Long COUNT_OF_REPLIES_IN_HTML = 5L;
-	private static Long ARTICLE_IDX = 1L;
+	private static Long ARTICLE_IDX = LongTestData.ARTICLE_IDX.getValue();
 
 	@BeforeEach
 	public void setUp() {

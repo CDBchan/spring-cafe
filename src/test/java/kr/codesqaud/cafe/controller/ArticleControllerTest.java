@@ -21,6 +21,8 @@ import kr.codesqaud.cafe.article.ArticleService;
 import kr.codesqaud.cafe.article.dto.ArticleResponse;
 import kr.codesqaud.cafe.article.dto.ArticleTitleAndContentResponse;
 import kr.codesqaud.cafe.reply.ReplyService;
+import kr.codesqaud.cafe.utils.data.LongTestData;
+import kr.codesqaud.cafe.utils.data.StringTestData;
 
 @WebMvcTest(ArticleController.class)
 class ArticleControllerTest {
@@ -40,8 +42,9 @@ class ArticleControllerTest {
 
 	private ArticleTitleAndContentResponse articleTitleAndContentResponse;
 
-	private static final String TITLE = "title";
-	private static final String CONTENT = "content";
+	private static final String TITLE = StringTestData.TITLE.getValue();
+	private static final String CONTENT = StringTestData.CONTENT.getValue();
+	private static final Long ARTICLE_IDX = LongTestData.ARTICLE_IDX.getValue();
 
 	@BeforeEach
 	public void setUp() {
@@ -66,7 +69,7 @@ class ArticleControllerTest {
 	@DisplayName("detail 메서드를 통해 해당 idx의 게시물 정보를 가져온다.")
 	void detailTest() throws Exception {
 		//given
-		given(articleService.findArticleByIdx(1L)).willReturn(articleResponse);
+		given(articleService.findArticleByIdx(ARTICLE_IDX)).willReturn(articleResponse);
 
 		//when & then
 		mockMvc.perform(MockMvcRequestBuilders.get("/articles/1")
@@ -81,7 +84,7 @@ class ArticleControllerTest {
 	@DisplayName("해당 글을 작성한 사용자는 글의 내용을 업데이트 할수 있는 form으로 이동할수 있다.")
 	void updateFormTest() throws Exception {
 		//given
-		given(articleService.validSessionIdAndArticleId(1L, "id")).willReturn(articleTitleAndContentResponse);
+		given(articleService.validSessionIdAndArticleId(ARTICLE_IDX, StringTestData.USER_ID.getValue())).willReturn(articleTitleAndContentResponse);
 
 		//when & then
 		mockMvc.perform(MockMvcRequestBuilders.get("/articles/update/1")

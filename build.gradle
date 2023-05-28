@@ -27,6 +27,10 @@ dependencies {
 
     //swagger
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
+
+    //h2 db
+    implementation 'com.h2database:h2'
+
 }
 
 tasks.named('test') {

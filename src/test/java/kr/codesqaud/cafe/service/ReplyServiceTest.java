@@ -22,6 +22,8 @@ import kr.codesqaud.cafe.reply.dto.ReplyResponse;
 import kr.codesqaud.cafe.reply.dto.Result;
 import kr.codesqaud.cafe.reply.repository.ReplyRepository;
 import kr.codesqaud.cafe.utils.ReplyTestUtils;
+import kr.codesqaud.cafe.utils.data.LongTestData;
+import kr.codesqaud.cafe.utils.data.StringTestData;
 
 @ExtendWith(MockitoExtension.class)
 class ReplyServiceTest {
@@ -40,8 +42,8 @@ class ReplyServiceTest {
 	private ReplyResponse replyResponse;
 	private LoadMoreReplyDto loadedReplyDto;
 	private List<Reply> replies;
-	private static final Long REPLY_IDX = 1L;
-	private static final String USER_ID = "testId";
+	private static final Long REPLY_IDX = LongTestData.REPLY_IDX.getValue();
+	private static final String USER_ID = StringTestData.USER_ID.getValue();
 
 	@BeforeEach
 	void setUp() {
