@@ -33,7 +33,7 @@ public class ReplyTestUtils {
 	}
 
 	public static LoadMoreReplyDto createLoadedReplyDto() {
-		return new LoadMoreReplyDto(articleIdx, 10, 0);
+		return new LoadMoreReplyDto(articleIdx, 2, 0);
 	}
 
 	public static List<Reply> createReplies() {
